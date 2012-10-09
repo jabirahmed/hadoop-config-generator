@@ -1,0 +1,9 @@
+---
+clusters:
+     topaz:
+        - colo : uj1
+        - description : "UJ1 Prod Colo"
+     emerald:
+        - colo: lhr1
+        - description : "lhr1 prod colo  "
+

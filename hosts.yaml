@@ -1,0 +1,4 @@
+---
+hosts:
+   ergs4101.grid.lhr1.inmobi.com:
+          - mapred.test: 1

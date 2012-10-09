@@ -1,0 +1,6 @@
+---
+emerald:
+    datanodes:
+       - mapred.dfs: this is a dn config
+    jobtracker:
+       - mapred.dfs: localhost
