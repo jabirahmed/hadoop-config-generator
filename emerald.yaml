@@ -1,6 +1,7 @@
 ---
-emerald:
-    datanodes:
-       - mapred.dfs: this is a dn config
-    jobtracker:
-       - mapred.dfs: localhost
+datanodes:
+    - mapred.dfs : this is a dn config
+    - hdfs.name : jabir
+    - mapred.default : emerald-nn
+jobtracker:
+    - mapred.dfs : localhost

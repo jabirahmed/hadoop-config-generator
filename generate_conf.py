@@ -14,32 +14,29 @@ def load_yaml(fname):
 		print "Yaml File "+fname+" could not be loaded"
 	return conf 
 
-def generate_xml(cluster,configutration,component,hostconfig,hostname="all"):
-       # this would generate the config files core-site.xml , mapred-site.xml and hdfs-site.xml
-       print configutration
-       print configutration[cluster][component]
-       if hostname in hostconfig["hosts"]:
-       		print hostconfig["hosts"][hostname]; 
-
-		
-
+# loading all the confs
 config=dict()
 config['clusters']=load_yaml("clusters.yaml");
 config['defaults']=load_yaml("defaults.yaml");
 config['hosts']=load_yaml("hosts.yaml")
 
-print config;
-clusters=config['clusters'];
-
-for root in clusters.keys():
-	clusternames=clusters[root].keys()
-
-print clusternames
 
 #trying to open cluster specific configs
+clusters=config['clusters'];
+for cname in clusters.keys():
+	config["clusters"][cname]=load_yaml(cname+".yaml");
 
-for cname in clusternames:
-		config[cname]=load_yaml(cname+".yaml");
-#print config
+properties=dict();
+properties.update(config['defaults']);
 
-generate_xml("emerald",config["emerald"],"datanodes",config["hosts"],'ergs4101.grid.lhr1.inmobi.com');
+for a in config["clusters"]["emerald"]["datanodes"]:
+	properties.update(a);
+
+hostname="gs2120.red.ua2.inmobi.com"
+if config['hosts'].has_key(hostname):
+	for a in config['hosts'][hostname]:
+        	properties.update(a);
+else:
+   print "No Configs found for the specific host "+ hostname
+
+print properties

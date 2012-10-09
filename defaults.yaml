@@ -1,2 +1,3 @@
 ---
-   mapred.default:asdf
+mapred.default : asdf
+test.conf : 123

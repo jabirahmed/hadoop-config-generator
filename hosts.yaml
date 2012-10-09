@@ -1,4 +1,6 @@
 ---
-hosts:
-   ergs4101.grid.lhr1.inmobi.com:
-          - mapred.test: 1
+ergs4101.grid.lhr1.inmobi.com:
+   - mapred.test: 1
+gs2120.red.ua2.inmobi.com:
+   - test.2120: 1
+   - test2.2120: 2
